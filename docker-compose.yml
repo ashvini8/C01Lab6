@@ -17,9 +17,13 @@ services:
       context: .
       dockerfile: Dockerfile_frontend
       target: frontend
-    image: ashvini/quirknotes_frontend:latest
+    image: ashvini8/quirknotes_frontend:latest
     ports:
-      - "3000:3000"
+      - "3000:80"
+    environment:
+      - ENV=Docker
+    depends_on:
+      - mongodb
 
   mongodb:
     image: mongo:latest
